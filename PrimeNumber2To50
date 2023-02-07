@@ -1,0 +1,19 @@
+// simple Program to print 2 to 50 primeNumber
+var num=2;
+
+for(var i=2;i<50;i++)
+{
+    var j=2;
+    while(j <= (i / j) )
+    {
+        if((i%j) == 0 )
+        {
+         break;
+        }
+        j=j+1;
+    }
+    if(j > (i/j))
+    {
+        console.log(i+" is a prime number");
+    }  
+}
