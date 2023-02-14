@@ -1,0 +1,31 @@
+// below are the JavaScript program to proint all possible combination for an Element 
+var a=[1,2,3];
+var arrToStore=[];
+var len=a.length;
+
+function rotation(a,start,end)
+{
+  if(start == end-1){console.log(a);}
+  else{
+  for(var i=start;i<end;i++)
+   {
+    
+  //  var str="";
+      var temp1=a[end-1];
+      var temp2=a[start];
+      for(var j=start;j<end;j++)
+      {   
+          a[j]=temp1;
+          //str=str+a;
+          temp1=temp2;
+          temp2=a[j+1];  
+      }
+      //console.log(a);
+     //arrToStore.push(a);
+     rotation(a,start+1,end);
+   }
+   
+   }
+  }
+
+  rotation(a,0,a.length)
