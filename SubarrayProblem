@@ -1,0 +1,48 @@
+/*Two children, Lily and Ron, want to share a chocolate bar. Each of the squares has an integer on it.
+
+Lily decides to share a contiguous segment of the bar selected such that:
+
+The length of the segment matches Ron's birth month, and,
+The sum of the integers on the squares is equal to his birth day.
+Determine how many ways she can divide the chocolate.
+
+Example
+s=[2,2,1,3,2]
+d=4,
+m=2
+Lily wants to find segments summing to Ron's birth day,  with a length equalling his birth month, . In this case, there are two segments meeting her criteria:  and .
+below code is javascript version for this problem 
+*/
+
+
+function birthday(s, d, m) {
+var count=0;
+for(var i=0;i<s.length;i++)
+{
+
+var dim=d;//3
+var ms=m;//2
+ if(s[i] <=dim){
+     dim=dim-s[i]; //2
+     ms=ms-1;//1
+     console.log("sum dim "+dim+"ms "+ms+"Count "+count)
+     }
+  else{continue;}  
+  for(var j=i+1;j<s.length;j++)
+  {
+     if(s[j] <=dim)
+    {
+     dim=dim-s[j];//1
+     ms=ms-1;//0
+    }
+    console.log("sum dim "+dim+"ms "+ms+"Count "+count)
+    if(dim==0 && ms==0){count=count+1;break;} 
+    if(ms==0 && dim!=0){break;} 
+    if(ms!=0 && dim==0){break;} 
+  }
+ }
+
+console.log(count);
+}
+
+// check with example  birthday([2,2,1,3,2],4,2)
