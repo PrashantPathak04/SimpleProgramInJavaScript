@@ -16,34 +16,26 @@ below code is javascript version for this problem
 
 
 function birthday(s, d, m) {
-var count=0;
-for(var i=0;i<s.length;i++)
-{
-
-var dim=d;//3
-var ms=m;//2
- if(s[i] <=dim){
-     dim=dim-s[i]; //2
-     ms=ms-1;//1
-     console.log("sum dim "+dim+"ms "+ms+"Count "+count)
-     if(dim==0 && ms==0){count=count+1;break;} 
-     }
-  else{continue;}  
-  for(var j=i+1;j<s.length;j++)
-  {
-     if(s[j] <=dim)
+    // Write your code here
+    var count=0;
+    for(var i=0;i<s.length;i++)
     {
-     dim=dim-s[j];//1
-     ms=ms-1;//0
-    }
-    console.log("sum dim "+dim+"ms "+ms+"Count "+count)
-    if(dim==0 && ms==0){count=count+1;break;} 
-    if(ms==0 && dim!=0){break;} 
-    if(ms!=0 && dim==0){break;} 
-  }
- }
-
-console.log(count);
+    var dim=d;//3
+    var ms=m;//2
+    if(s[i] <=dim){ dim=dim-s[i]; ms=ms-1; }else{continue;}
+    if(dim==0 && ms==0){count++;continue;}
+    console.log("dim "+dim+"ms "+ms+"count "+count);
+    var j=i+1;
+    while((dim >=0 && ms>=0 ) && j<s.length)
+     {
+      if(s[j] <=d){ dim=dim-s[j]; ms=ms-1; }
+      console.log("dim ii "+dim+"ms "+ms+"count "+count);
+      if(dim==0 && ms==0){count++;break;} 
+       if(dim <=0 || ms <= 0){break;} 
+      j++;
+     }    
+    } 
+return count;
 }
 
 // check with example  birthday([2,2,1,3,2],4,2)
