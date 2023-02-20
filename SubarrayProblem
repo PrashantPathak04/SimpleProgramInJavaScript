@@ -26,6 +26,7 @@ var ms=m;//2
      dim=dim-s[i]; //2
      ms=ms-1;//1
      console.log("sum dim "+dim+"ms "+ms+"Count "+count)
+     if(dim==0 && ms==0){count=count+1;break;} 
      }
   else{continue;}  
   for(var j=i+1;j<s.length;j++)
@@ -46,3 +47,4 @@ console.log(count);
 }
 
 // check with example  birthday([2,2,1,3,2],4,2)
+//birthday([1,2,1,3,2],3,2)
